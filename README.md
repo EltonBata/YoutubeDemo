@@ -21,3 +21,7 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 [![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
 
+<div>
+    <p>Credits:</p>
+    <a href = "https://www.youtube.com/watch?v=whuIf33v2Ug">The Codeholic</a>
+</div>
