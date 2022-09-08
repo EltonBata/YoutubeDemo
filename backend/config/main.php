@@ -7,7 +7,6 @@ $params = array_merge(
 );
 
 return [
-    'name' => 'YouTube Demo',
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',

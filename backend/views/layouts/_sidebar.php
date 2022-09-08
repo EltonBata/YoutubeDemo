@@ -1,7 +1,7 @@
 
 
 <aside class="shadow">
-    <?php echo \yii\bootstrap5\Nav::widget([
+    <?php echo \yii\bootstrap4\Nav::widget([
 
     'options' => [
         'class' => 'd-flex flex-column nav-pills'

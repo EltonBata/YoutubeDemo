@@ -1,11 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Video */
-/* @var $form yii\bootstrap4\ActiveForm */
+/* @var yii\bootstrap4\ActiveForm $form */
 
 \backend\assets\TagsInputAssets::register($this);
 ?>
@@ -19,6 +19,9 @@ use yii\widgets\ActiveForm;
     <div class="row">
 
         <div class="col-sm-8">
+
+            <?php echo $form->errorSummary($model)?>
+
              <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
@@ -51,7 +54,9 @@ use yii\widgets\ActiveForm;
             </div>
 
             <div class="embed-responsive embed-responsive-16by9 my-3">
-                <video src="<?php echo $model->getVideoLink(); ?>" class="embed-responsive-item" controls></video>
+                <video src="<?php echo $model->getVideoLink(); ?>" class="embed-responsive-item" controls
+                    poster="<?php echo $model->getThumbLink(); ?>"
+                ></video>
             </div>
 
             <div class="mb-3">

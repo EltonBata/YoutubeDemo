@@ -2,6 +2,8 @@
 
 namespace common\models;
 
+use Imagine\Image\Box;
+use Symfony\Component\DomCrawler\Image;
 use Yii;
 use yii\base\Exception;
 use yii\behaviors\BlameableBehavior;
@@ -75,7 +77,7 @@ class Video extends \yii\db\ActiveRecord
             ['has_thumbnail', 'default', 'value' => 0],
             ['status', 'default', 'value' => self::STATUS_UNLISTED],
             ['videoF', 'file', 'extensions' => ['mp4']],
-            ['thumbnail', 'file', 'extensions' => ['jpg']]
+            ['thumbnail', 'image', 'minWidth' => 1280]
         ];
     }
 
@@ -150,6 +152,10 @@ class Video extends \yii\db\ActiveRecord
              }
 
              $this->thumbnail->saveAs($thumbnailPath);
+             \yii\imagine\Image::getImagine()
+                 ->open($thumbnailPath)
+                 ->thumbnail(new Box(1280, 1280))
+                 ->save();
          }
 
          return true;
@@ -162,7 +168,7 @@ class Video extends \yii\db\ActiveRecord
 
       public function getThumbLink(){
 
-         return Yii::$app->params['frontendUrl']. 'storage/thumbs/'.$this->video_id.'.jpg';
+         return $this->has_thumbnail ? Yii::$app->params['frontendUrl']. 'storage/thumbs/'.$this->video_id.'.jpg':"";
      }
 
      public function getStatusLabels(){
